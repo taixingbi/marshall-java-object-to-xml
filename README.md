@@ -3,5 +3,5 @@
 
 #### reference
 ```
-https://www.youtube.com/watch?v=BbI8FdQOKNs
+https://www.javatpoint.com/jaxb-marshalling-example
 ```
