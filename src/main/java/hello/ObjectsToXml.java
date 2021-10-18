@@ -1,7 +1,7 @@
 package hello;
 
 import hello.model.User;
-import hello.model.Users;
+import hello.model.Chunk;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -13,20 +13,20 @@ import java.util.ArrayList;
 public class ObjectsToXml {
 
     public static void process() throws JAXBException, FileNotFoundException {
-        JAXBContext contextObj = JAXBContext.newInstance(Users.class);
+        JAXBContext contextObj = JAXBContext.newInstance(Chunk.class);
 
         Marshaller marshallerObj = contextObj.createMarshaller();
         marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-        User ans1=new User(101,"taixing bi","tb@gmail.com");
-        User ans2=new User(102,"hunter","hunter@gmail.com");
+        User user1 = new User(101,"taixing bi","tb@gmail.com");
+        User user2 = new User(102,"hunter","hunter@gmail.com");
 
         ArrayList<User> list=new ArrayList<User>();
-        list.add(ans1);
-        list.add(ans2);
+        list.add(user1);
+        list.add(user2);
 
-        Users que=new Users(0, list);
-        jaxbObjectToXML(que);
+        Chunk chunk=new Chunk(0, list);
+        jaxbObjectToXML(chunk);
 //        marshallerObj.marshal(que, new FileOutputStream("question.xml"));
     }
 
@@ -35,7 +35,7 @@ public class ObjectsToXml {
         java.io.StringWriter sw = new StringWriter();
 
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(Chunk.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE); // To format XML
             jaxbMarshaller.marshal(object, sw);

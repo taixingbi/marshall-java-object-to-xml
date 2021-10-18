@@ -1,10 +1,13 @@
 package hello.model;
 
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement //  only for User as object for xml
 public class User {
     private int id;
     private String name;
     private String email;
-//    public User() {}
+    public User() {}
     public User(int id, String name, String email) {
         super();
         this.id = id;
