@@ -7,21 +7,11 @@ import java.util.List;
 
 @XmlRootElement
 public class Chunk {
-    private int id;
     private List<User> users;
     public Chunk() {} // must keep it
-    public Chunk(int id, List<User> users) {
+    public Chunk(List<User> users) {
         super();
-        this.id = id;
         this.users = users;
-    }
-
-    @XmlAttribute
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
     }
 
     @XmlElement
