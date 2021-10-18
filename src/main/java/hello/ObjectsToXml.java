@@ -12,11 +12,6 @@ import java.util.ArrayList;
 
 public class ObjectsToXml {
     public static void process() throws JAXBException, FileNotFoundException {
-        JAXBContext contextObj = JAXBContext.newInstance(Chunk.class);
-
-        Marshaller marshallerObj = contextObj.createMarshaller();
-        marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
         User user1 = new User(101,"taixing bi","tb@gmail.com");
         User user2 = new User(102,"hunter","hunter@gmail.com");
 
@@ -24,9 +19,8 @@ public class ObjectsToXml {
         list.add(user1);
         list.add(user2);
 
-        Chunk chunk=new Chunk(list);
+        Chunk chunk = new Chunk(list);
         jaxbObjectToXML(chunk);
-//        marshallerObj.marshal(que, new FileOutputStream("question.xml"));
     }
 
     private static String jaxbObjectToXML(Object object)
